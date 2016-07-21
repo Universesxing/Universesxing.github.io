@@ -250,8 +250,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/20/2016-07-20-GitHubUpload/" itemprop="url">
-                  初学者上传文件到github
+                <a class="post-title-link" href="/2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/" itemprop="url">
+                  MongoDB学习笔记
                 </a>
               
             
@@ -264,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-20T11:46:18+08:00" content="2016-07-20">
-              2016-07-20
+            <time itemprop="dateCreated" datetime="2016-07-21T09:53:05+08:00" content="2016-07-21">
+              2016-07-21
             </time>
           </span>
 
@@ -275,8 +275,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/20/2016-07-20-GitHubUpload/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/2016-07-20-GitHubUpload/" itemprop="commentsCount"></span>
+                <a href="/2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,7 +301,447 @@
       
         
           
-            <h3 id="建立仓库：不做解释"><a href="#建立仓库：不做解释" class="headerlink" title="建立仓库：不做解释"></a>建立仓库：不做解释</h3><p>先确认git公钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod.exe --logpath E:/data/db/dbConf/mongodb.log --logappend --dbpath E:/data --directoryperdb --serviceName MongoDB -install</div></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">启动MongoDB：net start MongoDB</div><div class="line">停止MongoDB：net stop MongoDB</div><div class="line">删除MongoDB：sc delete MongoDB</div></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">use 指向（创建）数据库 use test   如果不存在则创建</div><div class="line">db.dropDatabase()    删除数据库（需要进入数据库）</div><div class="line">db 查询现在数据库        db  </div><div class="line">show dbs  查询数据库大小；</div><div class="line">insert() 或 save() 方法向集合中插入文档；</div><div class="line">update() 方法用于更新已存在的文档。</div><div class="line">save() 方法通过传入的文档来替换已有文档</div><div class="line">remove()删除文档</div><div class="line">find()    查询文档       find().pretty()规则的显示</div><div class="line">ensureIndex()       索引</div><div class="line">aggregate() 方法 聚合方法，处理数据（统计）</div></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-01.png?raw=true" alt="数据类型" title="数据类型"></p>
+<h3 id="插入事例"><a href="#插入事例" class="headerlink" title="插入事例"></a>插入事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;db.col.insert(&#123;title:&apos;MongoDB 教程&apos;,</div><div class="line">    description:&apos;MongoDB 是一个 Nosql 数据库&apos;,by:&apos;菜鸟教程&apos;,</div><div class="line">    url:&apos;http://www.runoob.com&apos;,</div><div class="line">    tags:[&apos;mongodb&apos;,&apos;database&apos;,&apos;NoSQL&apos;],</div><div class="line">    likes:100&#125;)</div></pre></td></tr></table></figure>
+<p>col 是集合名，如果该集合不在该数据库中， MongoDB 会自动创建集合插入文档。</p>
+<h4 id="分开执行-创建对象"><a href="#分开执行-创建对象" class="headerlink" title="分开执行 -创建对象"></a>分开执行 -创建对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; document=(&#123;title:&apos;MongoDB 教程&apos;, </div><div class="line">    description:&apos;MongoDB 是一个 Nosql 数据库&apos;,by:&apos;菜鸟教程&apos;,</div><div class="line">    url:&apos;http://www.runoob.com&apos;,</div><div class="line">    tags:[&apos;mongodb&apos;,&apos;database&apos;,&apos;NoSQL&apos;],</div><div class="line">    likes:100&#125;);</div></pre></td></tr></table></figure>
+<h4 id="执行插入："><a href="#执行插入：" class="headerlink" title="执行插入："></a>执行插入：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.insert(document)</div></pre></td></tr></table></figure>
+<h3 id="更新事例"><a href="#更新事例" class="headerlink" title="更新事例"></a>更新事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.collection.update(&lt;query&gt;,&lt;update&gt;,&#123;</div><div class="line">     upsert:&lt;boolean&gt;,</div><div class="line">     multi:&lt;boolean&gt;,</div><div class="line">     writeConcern:&lt;document&gt;&#125;)</div></pre></td></tr></table></figure>
+<h4 id="相关属性"><a href="#相关属性" class="headerlink" title="相关属性"></a>相关属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">query : update的查询条件，类似sql update查询内where后面的。</div><div class="line">update : update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</div><div class="line">upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</div><div class="line">multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</div><div class="line">writeConcern :可选，抛出异常的级别。</div></pre></td></tr></table></figure>
+<h4 id="事例"><a href="#事例" class="headerlink" title="事例"></a>事例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.update(&#123;&apos;title&apos;:&apos;MongoDB 教程&apos;&#125;,&#123;$set:&#123;&apos;title&apos;:&apos;MongoDB&apos;&#125;&#125;)</div></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.col.find().pretty()</div><div class="line">&gt;db.col.save(&#123;&quot;_id&quot;:ObjectId(&quot;56064f89ade2f21f36b03136&quot;),（这里的ID是要替换的ID）&quot;title&quot;:&quot;MongoDB&quot;&#125;)</div></pre></td></tr></table></figure>
+<h3 id="删除事例"><a href="#删除事例" class="headerlink" title="删除事例"></a>删除事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">db.collection.remove(&lt;query&gt;,&#123;</div><div class="line">     justOne:&lt;boolean&gt;,</div><div class="line">     writeConcern:&lt;document&gt;&#125;)</div></pre></td></tr></table></figure>
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">query :（可选）删除的文档的条件。</div><div class="line">justOne : （可选）如果设为 true 或 1，则只删除一个文档。</div><div class="line">writeConcern :（可选）抛出异常的级别。</div></pre></td></tr></table></figure>
+<h4 id="事例-1"><a href="#事例-1" class="headerlink" title="事例"></a>事例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.remove(&#123;&apos;title&apos;:&apos;MongoDB 教程&apos;&#125;)</div></pre></td></tr></table></figure>
+<h4 id="查询并删除"><a href="#查询并删除" class="headerlink" title="查询并删除"></a>查询并删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">and: db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()</div><div class="line">or:  db.col.find&#123;$or:[&#123;key1,value1&#125; , &#123;key2:value2&#125;]&#125;.pretty()</div><div class="line">&lt;：$lt    &lt;=:lte  &gt;:$gt    &gt;=:$gte    !=:%ne</div><div class="line">db.col.find(&#123;&quot;likes&quot;:&#123;$lt:50&#125;&#125;).pretty()</div></pre></td></tr></table></figure>
+<h3 id="类型编号"><a href="#类型编号" class="headerlink" title="类型编号"></a>类型编号</h3><h4 id="类型编号查询"><a href="#类型编号查询" class="headerlink" title="类型编号查询"></a>类型编号查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.find(&#123;&quot;title&quot;:&#123;$type :2&#125;&#125;)</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-02.png?raw=true" alt="类型编号表" title="类型编号表"></p>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><h4 id="Limit与Skip方法："><a href="#Limit与Skip方法：" class="headerlink" title="Limit与Skip方法："></a>Limit与Skip方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.find().limit(NUMBER)    读取指定数量的数据记录</div><div class="line">&gt;db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)    skip()方法来跳过指定数量的数据</div><div class="line">&gt;db.col.find(&#123;&#125;,&#123;&quot;title&quot;:1,_id:0&#125;).limit(1).skip(1)</div></pre></td></tr></table></figure>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.find().sort(&#123;KEY:1&#125;)    sort排序 1为升序，-1为降序</div></pre></td></tr></table></figure>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.ensureIndex(&#123;KEY:1&#125;)    key 1为升序，-1为降序</div><div class="line">&gt;db.col.ensureIndex(&#123;&quot;title&quot;:1,&quot;description&quot;:-1&#125;)也可以设置多字段索引</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-03.png?raw=true" alt="索引相关属性" title="索引相关属性"></p>
+<h3 id="管道概念"><a href="#管道概念" class="headerlink" title="管道概念"></a>管道概念</h3><p>当前命令的输出结果作为下一个命令的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</div><div class="line">$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</div><div class="line">$limit：用来限制MongoDB聚合管道返回的文档数。</div><div class="line">$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。</div><div class="line">$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。</div><div class="line">$group：将集合中的文档分组，可用于统计结果。</div><div class="line">$sort：将输入文档排序后输出。</div><div class="line">$geoNear：输出接近某一地理位置的有序文档。</div></pre></td></tr></table></figure></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.runoob.com/mongodb/mongodb-sharding.html" title="http://www.runoob.com/mongodb/mongodb-sharding.html" target="_blank" rel="external">http://www.runoob.com/mongodb/mongodb-sharding.html</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/21/2016-07-21-阿里云域名解析设置-DomainBinding/" itemprop="url">
+                  阿里云域名解析设置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T09:33:35+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/2016-07-21-阿里云域名解析设置-DomainBinding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-阿里云域名解析设置-DomainBinding/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>进入解析设置。。<br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/DomainBinding-01.png?raw=true" alt="进入解析" title="进入解析"><br>增加解析<br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/DomainBinding-02.png?raw=true" alt="增加解析" title="增加解析"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/21/2016-07-21-Linux双屏分辨率调整-LinuxResolutionRatioSet/" itemprop="url">
+                  Linux双屏分辨率调整
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T09:09:07+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/2016-07-21-Linux双屏分辨率调整-LinuxResolutionRatioSet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-Linux双屏分辨率调整-LinuxResolutionRatioSet/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="首先，直接运行xrandr查看下分辨率的情况："><a href="#首先，直接运行xrandr查看下分辨率的情况：" class="headerlink" title="首先，直接运行xrandr查看下分辨率的情况："></a>首先，直接运行xrandr查看下分辨率的情况：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ xrandr</div><div class="line">Screen 0: minimum 320 x 200, current 1280 x 1024, maximum 4096 x 4096</div><div class="line">LVDS1 connected (normal left inverted right x axis y axis)</div><div class="line">   1024x600       60.0 +</div><div class="line">   800x600        60.3     56.2</div><div class="line">   640x480        59.9</div><div class="line">VGA1 connected 1280x1024+0+0 (normal left inverted right x axis y axis) 0mm x 0mm</div><div class="line">   1024x768       60.0 *</div><div class="line">   800x600        60.3     56.2</div><div class="line">   848x480        60.0</div><div class="line">   640x480        59.9</div></pre></td></tr></table></figure>
+<h5 id="标星号的那行就是我正在使用的分辨率。"><a href="#标星号的那行就是我正在使用的分辨率。" class="headerlink" title="标星号的那行就是我正在使用的分辨率。"></a>标星号的那行就是我正在使用的分辨率。</h5><p>cvt命令生成一个modeline，为后续添加分辨率作准备：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cvt 1440 900</div><div class="line"> # 1440x900 59.89 Hz (CVT 1.30MA) hsync: 55.93 kHz; pclk: 106.50 MHz</div><div class="line"> Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync</div></pre></td></tr></table></figure></p>
+<h4 id="接着用xrandr-–addmode把这个模式添加到显示器"><a href="#接着用xrandr-–addmode把这个模式添加到显示器" class="headerlink" title="接着用xrandr –addmode把这个模式添加到显示器"></a>接着用xrandr –addmode把这个模式添加到显示器</h4><p>（–delmode把这个模式从该显示器上移除）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xrandr --addmode VGA1 &quot;1440x900_60.00&quot;</div></pre></td></tr></table></figure></p>
+<h4 id="最后是应用这个模式"><a href="#最后是应用这个模式" class="headerlink" title="最后是应用这个模式"></a>最后是应用这个模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xrandr --output VGA1 --mode &quot;1440x900_60.00&quot;</div></pre></td></tr></table></figure>
+<p>到这里就结束了。可以在使用xrandr查看下。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/20/2016-07-20-华为M2刷Root-BrushHuaWeiM2/" itemprop="url">
+                  华为M2刷Root
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-20T18:05:44+08:00" content="2016-07-20">
+              2016-07-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/20/2016-07-20-华为M2刷Root-BrushHuaWeiM2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/2016-07-20-华为M2刷Root-BrushHuaWeiM2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>之前Root的时候写的记录，也许有人需要</p>
+</blockquote>
+<h3 id="第一步，解锁（用工具箱解锁）"><a href="#第一步，解锁（用工具箱解锁）" class="headerlink" title="第一步，解锁（用工具箱解锁）"></a>第一步，解锁（用工具箱解锁）</h3><p>获取解锁码： <a href="https://www.emui.com/plugin.php?id=unlock&amp;mod=detail" title="https://www.emui.com/plugin.php?id=unlock&amp;mod=detail" target="_blank" rel="external">https://www.emui.com/plugin.php?id=unlock&amp;mod=detail</a><br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-01.png?raw=true" alt="工具箱图片" title="工具箱图片"></p>
+<h3 id="解锁完成，刷入REC–huawei-x2-b009-recovery"><a href="#解锁完成，刷入REC–huawei-x2-b009-recovery" class="headerlink" title="解锁完成，刷入REC–huawei-x2-b009-recovery"></a>解锁完成，刷入REC–huawei-x2-b009-recovery</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-02.png?raw=true" alt="一键刷入" title="一键刷入"><br>手机点击  开机键 下键 两键，进入fashboot下。<br>直接使用一键刷入，文件在hw-m2教程.zip中，地址：<br><a href="http://pan.baidu.com/s/1nv1u0rR" title="http://pan.baidu.com/s/1nv1u0rR" target="_blank" rel="external">http://pan.baidu.com/s/1nv1u0rR</a></p>
+<h3 id="刷入后，拷贝supersu-pro-2-49-zip到手机磁盘，找得到的地方就好"><a href="#刷入后，拷贝supersu-pro-2-49-zip到手机磁盘，找得到的地方就好" class="headerlink" title="刷入后，拷贝supersu_pro_2.49.zip到手机磁盘，找得到的地方就好"></a>刷入后，拷贝supersu_pro_2.49.zip到手机磁盘，找得到的地方就好</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-03.png?raw=true" alt="刷机效果" title="刷机效果"><br>点击开机键 上下键  三键，进入REC，点击安装刷机包，选择supersu_pro_2.49.zip，安装<br>就完成了。</p>
+<p>我的百度云中也有。。</p>
+<p>然后点击重启到recovery或者手动按电源键加音量上下键键就可以进入recovery了，第三方recovery如下图</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root" title="http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root" target="_blank" rel="external">http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root</a></p>
+<p><a href="http://tieba.baidu.com/p/4327743658" title="http://tieba.baidu.com/p/4327743658" target="_blank" rel="external">http://tieba.baidu.com/p/4327743658</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/20/2016-07-20-初学者上传文件到github-GitHubUpload/" itemprop="url">
+                  初学者上传文件到github
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-20T11:46:18+08:00" content="2016-07-20">
+              2016-07-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/20/2016-07-20-初学者上传文件到github-GitHubUpload/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/2016-07-20-初学者上传文件到github-GitHubUpload/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="建立仓库："><a href="#建立仓库：" class="headerlink" title="建立仓库："></a>建立仓库：</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/githubupload02.png?raw=true" alt="仓库地址" title="建立仓库"><br>先确认git公钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　ssh -T git@github.com</div></pre></td></tr></table></figure></p>
 <h3 id="克隆产库"><a href="#克隆产库" class="headerlink" title="克隆产库"></a>克隆产库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Universesxing/MarkdownPhotos.git</div></pre></td></tr></table></figure>
 <h4 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h4><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/githubupload01.png?raw=true" alt="仓库地址" title="仓库地址"></p>
 <h3 id="上传README-md"><a href="#上传README-md" class="headerlink" title="上传README.md"></a>上传README.md</h3><h4 id="注：如果创建时已经生成则不管此步"><a href="#注：如果创建时已经生成则不管此步" class="headerlink" title="注：如果创建时已经生成则不管此步"></a>注：如果创建时已经生成则不管此步</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">touch README.md</div><div class="line">git add README.md</div><div class="line">git commit -m <span class="string">'first_commit'</span></div><div class="line">git remote add origin https://github.com/Universesxing/MarkdownPhotos.git</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
@@ -355,7 +795,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/06/2016-07-20-HexoGitHubNewBlog/" itemprop="url">
+                <a class="post-title-link" href="/2016/07/06/2016-07-20-Hexo搭建GitHub个人博客-HexoGitHubNewBlog/" itemprop="url">
                   Hexo搭建GitHub个人博客
                 </a>
               
@@ -380,8 +820,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/06/2016-07-20-HexoGitHubNewBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-20-HexoGitHubNewBlog/" itemprop="commentsCount"></span>
+                <a href="/2016/07/06/2016-07-20-Hexo搭建GitHub个人博客-HexoGitHubNewBlog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-20-Hexo搭建GitHub个人博客-HexoGitHubNewBlog/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -478,7 +918,111 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/20/2016-03-20-Know-Markdown/" itemprop="url">
+                <a class="post-title-link" href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="url">
+                  SVN的基础使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-06T10:08:16+08:00" content="2016-07-06">
+              2016-07-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>协同开发工具，配置管理工具，<br>主要作用：管理源代码，文档</p>
+<h3 id="分模块开发-："><a href="#分模块开发-：" class="headerlink" title="分模块开发 ："></a>分模块开发 ：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">用户管理---&gt;提交自己模块的功能代码</div><div class="line">配置管理---&gt;</div></pre></td></tr></table></figure>
+<h4 id="svn服务器安装，"><a href="#svn服务器安装，" class="headerlink" title="svn服务器安装，"></a>svn服务器安装，</h4><p> https:安全的<br> repositories: 数据仓库 专门用来存放数据，包括源代码、文档等存储到这里面<br> Server port  使用http    注意端口的冲突</p>
+<h4 id="配置svn服务"><a href="#配置svn服务" class="headerlink" title="配置svn服务"></a>配置svn服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">新建respostory</div><div class="line">新建项目文件夹</div><div class="line">创建一系列的文件夹，比如 文档，源代码，会议记录</div><div class="line">如果要访问 ，一定创建Users</div><div class="line">如果要对某一个文件夹 ，比如说移动办公文件夹权限管理，需要创建groups</div><div class="line">某个文件夹对组进行开放</div></pre></td></tr></table></figure>
+<h4 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端 :"></a>配置客户端 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url:http://ms-201407201443:81/svn/xmxx/moveoa/某个项目组</div><div class="line">non-versioned 没有在版本控制下</div><div class="line">modified 修改状态</div><div class="line">原则 ：先更新再提交</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/20/2016-03-20-认识MarkDown-KnowMarkdown/" itemprop="url">
                   认识MarkDown
                 </a>
               
@@ -503,8 +1047,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/20/2016-03-20-Know-Markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/20/2016-03-20-Know-Markdown/" itemprop="commentsCount"></span>
+                <a href="/2016/03/20/2016-03-20-认识MarkDown-KnowMarkdown/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/20/2016-03-20-认识MarkDown-KnowMarkdown/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -658,7 +1202,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -668,7 +1212,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
