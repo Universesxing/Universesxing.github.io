@@ -250,6 +250,116 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/" itemprop="url">
+                  Hexo搭建GitHub个人博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T12:41:55+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Cmd常用操作"><a href="#Cmd常用操作" class="headerlink" title="Cmd常用操作"></a>Cmd常用操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">net stop mysql   停止mysql的服务</div><div class="line">net start mysql 开启mysql的服务</div><div class="line">status:查看数据一系列的状态，包括字符编码等</div><div class="line">show  databases; 显示所有数据库</div><div class="line">use  database (mysql)  ;使用某个数据库</div><div class="line">show tables;显示某个数据中所有的表</div></pre></td></tr></table></figure>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">create table  (创建表） student(表名)(</div><div class="line">    stuid (字段名）  int (类型） primary key(主键） auto_increment(主键自增长),</div><div class="line">    stuName  varchar(20) (可变的字符,随着字符数量改变而改变，是最长的长度空间20)，</div><div class="line">    gender  char(10)(不可变的字符，不随着字符数量改变而改变，最长的长度空间为10），</div><div class="line">    major varchar(20)  (最后一个不要写逗号)</div><div class="line">);</div><div class="line"></div><div class="line">create table 表名（</div><div class="line">    字段名  类型  主键  自增长</div><div class="line">）;</div></pre></td></tr></table></figure>
+<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into student(stuname,gender,major) values(&apos;java&apos;,&apos;m&apos;,&apos;computer&apos;);</div><div class="line">insert into student(stuname,gender,major) values(&apos;张三&apos;,&apos;男&apos;,&apos;旅游管理&apos;);</div></pre></td></tr></table></figure>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete from 表名 where 主键（id)=某个值</div><div class="line">delete from student where stuname=&apos;王磊&apos;;</div></pre></td></tr></table></figure>
+<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update 表名 set 字段名=希望修改的值，字段名=希望修改的值 where 主键=某个值</div><div class="line">update student set gender=&apos;男&apos; where stuid=8;</div></pre></td></tr></table></figure>
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from student;</div><div class="line">select   查询显示的记录的字段  from  表名  where   字段名=条件</div></pre></td></tr></table></figure>
+<h4 id="修改编码类型（插入中文）"><a href="#修改编码类型（插入中文）" class="headerlink" title="修改编码类型（插入中文）"></a>修改编码类型（插入中文）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">修改 MySQL---&gt;my.ini</div><div class="line">default-character-set=gbk</div><div class="line">character-set-server=gbk</div><div class="line">utf8</div></pre></td></tr></table></figure>
+<h4 id="limit使用"><a href="#limit使用" class="headerlink" title="limit使用"></a>limit使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from tablename limit 2,4</div><div class="line">			取出第3条至第6条，4条记录。</div></pre></td></tr></table></figure>
+<h4 id="like使用"><a href="#like使用" class="headerlink" title="like使用"></a>like使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;[abcde]cc&apos;</div><div class="line">查找 acc bcc ccc dcc ecc</div></pre></td></tr></table></figure>
+<h4 id="查找某一时间段的数据"><a href="#查找某一时间段的数据" class="headerlink" title="查找某一时间段的数据"></a>查找某一时间段的数据</h4><p> SELECT * FROM lmapp.xxx where tx_time Between ‘2015-12-20’ And ‘2015-12-31’;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/" itemprop="url">
                   MongoDB学习笔记
                 </a>
@@ -967,7 +1077,7 @@
 <h5 id="注意：-config-yml配置文件是一个空行，所以必须有个空格。冒号-后面没留空格导致错误。"><a href="#注意：-config-yml配置文件是一个空行，所以必须有个空格。冒号-后面没留空格导致错误。" class="headerlink" title="注意：_config.yml配置文件是一个空行，所以必须有个空格。冒号:后面没留空格导致错误。"></a>注意：_config.yml配置文件是一个空行，所以必须有个空格。冒号:后面没留空格导致错误。</h5><p>错误设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">author:Zhchnchn</div><div class="line">email:XXX@qq.com</div><div class="line">language:zh-CN</div></pre></td></tr></table></figure></p>
 <p>正确设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">author: Zhchnchn</div><div class="line">email: XXX@qq.com</div><div class="line">language: zh-CN</div></pre></td></tr></table></figure></p>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装 npm install hexo-deployer-git --save</div><div class="line">在github上建立项目，项目名为 : Universesxing/Universesxing.github.io #用户名/用户名</div><div class="line">将deploy 的 type由github改为git</div></pre></td></tr></table></figure>
-<h3 id="配置域名："><a href="#配置域名：" class="headerlink" title="配置域名："></a>配置域名：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在github项目中，新建一个文件CNAME，文件中写出你要绑定的域名blog.universexin.com。</div><div class="line">通过浏览器，访问blog.universexin.com，就打开了我们建好的博客站点。</div><div class="line">加入CNAME blog  到相应地址</div></pre></td></tr></table></figure>
+<h3 id="配置域名："><a href="#配置域名：" class="headerlink" title="配置域名："></a>配置域名：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在github项目中，新建一个文件CNAME，文件中写出你要绑定的域名blog.universexin.com。</div><div class="line">通过浏览器，访问blog.universexin.com，就打开了我们建好的博客站点。</div><div class="line">加入CNAME blog  到相应地址。</div><div class="line">在blog的source目录下新建CNAME,在文件中写入你的域名。</div></pre></td></tr></table></figure>
 <p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/cnameblogconfig01.png?raw=true" alt="配置域名" title="配置域名"></p>
 <h3 id="安装feed插件"><a href="#安装feed插件" class="headerlink" title="安装feed插件"></a>安装feed插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-feed</div><div class="line">$ npm install hexo-generator-sitemap</div></pre></td></tr></table></figure>
 <h4 id="feed设置"><a href="#feed设置" class="headerlink" title="feed设置"></a>feed设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">Plugins:</div><div class="line">- hexo-generator-feed</div><div class="line">- hexo-generator-sitemap</div><div class="line"></div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div></pre></td></tr></table></figure>
@@ -1202,7 +1312,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1212,7 +1322,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
