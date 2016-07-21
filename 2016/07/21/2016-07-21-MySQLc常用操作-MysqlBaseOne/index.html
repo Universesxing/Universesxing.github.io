@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="Cmd常用操作123456net stop mysql   停止mysql的服务net start mysql 开启mysql的服务status:查看数据一系列的状态，包括字符编码等show  databases; 显示所有数据库use  database (mysql)  ;使用某个数据库show tables;显示某个数据中所有的表
-操作创建表12345678910create table">
+<meta name="description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建GitHub个人博客">
 <meta property="og:url" content="http://blog.universexin.com/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/index.html">
 <meta property="og:site_name" content="UiverseXin Blog">
-<meta property="og:description" content="Cmd常用操作123456net stop mysql   停止mysql的服务net start mysql 开启mysql的服务status:查看数据一系列的状态，包括字符编码等show  databases; 显示所有数据库use  database (mysql)  ;使用某个数据库show tables;显示某个数据中所有的表
-操作创建表12345678910create table">
-<meta property="og:updated_time" content="2016-07-21T04:42:51.983Z">
+<meta property="og:description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
+<meta property="og:updated_time" content="2016-07-21T04:54:27.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建GitHub个人博客">
-<meta name="twitter:description" content="Cmd常用操作123456net stop mysql   停止mysql的服务net start mysql 开启mysql的服务status:查看数据一系列的状态，包括字符编码等show  databases; 显示所有数据库use  database (mysql)  ;使用某个数据库show tables;显示某个数据中所有的表
-操作创建表12345678910create table">
+<meta name="twitter:description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
 
 
 
@@ -298,16 +295,16 @@
       
 
       
-        <h3 id="Cmd常用操作"><a href="#Cmd常用操作" class="headerlink" title="Cmd常用操作"></a>Cmd常用操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">net stop mysql   停止mysql的服务</div><div class="line">net start mysql 开启mysql的服务</div><div class="line">status:查看数据一系列的状态，包括字符编码等</div><div class="line">show  databases; 显示所有数据库</div><div class="line">use  database (mysql)  ;使用某个数据库</div><div class="line">show tables;显示某个数据中所有的表</div></pre></td></tr></table></figure>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">create table  (创建表） student(表名)(</div><div class="line">    stuid (字段名）  int (类型） primary key(主键） auto_increment(主键自增长),</div><div class="line">    stuName  varchar(20) (可变的字符,随着字符数量改变而改变，是最长的长度空间20)，</div><div class="line">    gender  char(10)(不可变的字符，不随着字符数量改变而改变，最长的长度空间为10），</div><div class="line">    major varchar(20)  (最后一个不要写逗号)</div><div class="line">);</div><div class="line"></div><div class="line">create table 表名（</div><div class="line">    字段名  类型  主键  自增长</div><div class="line">）;</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )</div><div class="line">show variables like &apos;character%&apos;;                显示数据库字符编码</div><div class="line">修改密码:        setpasswordforroot@localhost = password(&apos;654321&apos;);</div><div class="line">net stop mysql   停止mysql的服务</div><div class="line">net start mysql 开启mysql的服务</div><div class="line">status:查看数据一系列的状态，包括字符编码等</div><div class="line">show  databases; 显示所有数据库</div><div class="line">use  database (mysql)  ;使用某个数据库</div><div class="line">show tables;显示某个数据中所有的表</div><div class="line">DROP DATABASE xxx;        删除数据库。</div><div class="line">drop table example;        删除表</div><div class="line">desc 表名称;                    查询表的字段信息</div></pre></td></tr></table></figure>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">create table  (创建表） student(表名)(</div><div class="line">    stuid (字段名）  int (类型） primary key(主键） auto_increment(主键自增长),</div><div class="line">    stuName  varchar(20) (可变的字符,随着字符数量改变而改变，是最长的长度空间20)，</div><div class="line">    gender  char(10)(不可变的字符，不随着字符数量改变而改变，最长的长度空间为10），</div><div class="line">    major varchar(20)  (最后一个不要写逗号)</div><div class="line">);</div><div class="line"></div><div class="line">create table 表名（</div><div class="line">    字段名  类型  主键  自增长</div><div class="line">）;</div><div class="line">CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci    创建数据库并用uft8</div></pre></td></tr></table></figure>
 <h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into student(stuname,gender,major) values(&apos;java&apos;,&apos;m&apos;,&apos;computer&apos;);</div><div class="line">insert into student(stuname,gender,major) values(&apos;张三&apos;,&apos;男&apos;,&apos;旅游管理&apos;);</div></pre></td></tr></table></figure>
 <h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete from 表名 where 主键（id)=某个值</div><div class="line">delete from student where stuname=&apos;王磊&apos;;</div></pre></td></tr></table></figure>
 <h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update 表名 set 字段名=希望修改的值，字段名=希望修改的值 where 主键=某个值</div><div class="line">update student set gender=&apos;男&apos; where stuid=8;</div></pre></td></tr></table></figure>
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from student;</div><div class="line">select   查询显示的记录的字段  from  表名  where   字段名=条件</div></pre></td></tr></table></figure>
 <h4 id="修改编码类型（插入中文）"><a href="#修改编码类型（插入中文）" class="headerlink" title="修改编码类型（插入中文）"></a>修改编码类型（插入中文）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">修改 MySQL---&gt;my.ini</div><div class="line">default-character-set=gbk</div><div class="line">character-set-server=gbk</div><div class="line">utf8</div></pre></td></tr></table></figure>
 <h4 id="limit使用"><a href="#limit使用" class="headerlink" title="limit使用"></a>limit使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from tablename limit 2,4</div><div class="line">			取出第3条至第6条，4条记录。</div></pre></td></tr></table></figure>
-<h4 id="like使用"><a href="#like使用" class="headerlink" title="like使用"></a>like使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;[abcde]cc&apos;</div><div class="line">查找 acc bcc ccc dcc ecc</div></pre></td></tr></table></figure>
-<h4 id="查找某一时间段的数据"><a href="#查找某一时间段的数据" class="headerlink" title="查找某一时间段的数据"></a>查找某一时间段的数据</h4><p> SELECT * FROM lmapp.xxx where tx_time Between ‘2015-12-20’ And ‘2015-12-31’;</p>
+<h4 id="like使用"><a href="#like使用" class="headerlink" title="like使用"></a>like使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;[abcde]cc&apos;</div><div class="line">查找 acc bcc ccc dcc ecc</div><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;%cc%&apos;</div><div class="line">查询带有 cc的数据</div></pre></td></tr></table></figure>
+<h4 id="查找某一时间段的数据"><a href="#查找某一时间段的数据" class="headerlink" title="查找某一时间段的数据"></a>查找某一时间段的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM lmapp.xxx where tx_time Between &apos;2015-12-20&apos; And &apos;2015-12-31&apos;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -346,6 +343,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/2016-07-21-开启数据库远程连接-OpenMysqlConn/" rel="prev" title="开启数据库远程连接">
+                开启数据库远程连接 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -417,7 +418,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -483,7 +484,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cmd常用操作"><span class="nav-number">1.</span> <span class="nav-text">Cmd常用操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表"><span class="nav-number">2.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据"><span class="nav-number">2.2.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">2.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">2.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">2.5.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改编码类型（插入中文）"><span class="nav-number">2.6.</span> <span class="nav-text">修改编码类型（插入中文）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#limit使用"><span class="nav-number">2.7.</span> <span class="nav-text">limit使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#like使用"><span class="nav-number">2.8.</span> <span class="nav-text">like使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找某一时间段的数据"><span class="nav-number">2.9.</span> <span class="nav-text">查找某一时间段的数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表"><span class="nav-number">1.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据"><span class="nav-number">1.2.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">1.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">1.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">1.5.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改编码类型（插入中文）"><span class="nav-number">1.6.</span> <span class="nav-text">修改编码类型（插入中文）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#limit使用"><span class="nav-number">1.7.</span> <span class="nav-text">limit使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#like使用"><span class="nav-number">1.8.</span> <span class="nav-text">like使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找某一时间段的数据"><span class="nav-number">1.9.</span> <span class="nav-text">查找某一时间段的数据</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
