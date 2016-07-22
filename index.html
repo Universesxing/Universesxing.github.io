@@ -311,11 +311,14 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">使用root进入数据库</div><div class="line">使用“use mysql”命令进入mysql设置中</div><div class="line">使用“GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;密码&apos; WITH GRANT OPTION;”命令可以更改远程连接的设置。</div></pre></td></tr></table></figure>
-<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/OpenMysqlConn01.png?raw=true" alt="修改" title="修改"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">使用“flush privileges;”命令刷新刚才修改的权限，使其生效。</div><div class="line">进入sql user表中查看%是否存在。</div></pre></td></tr></table></figure></p>
-<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/OpenMysqlConn02.png?raw=true" alt="效果" title="效果"></p>
+          123使用root进入数据库使用“use mysql”命令进入mysql设置中使用“GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;密码&apos; WITH GRANT OPTION
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/2016-07-21-开启数据库远程连接-OpenMysqlConn/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -414,18 +417,14 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )</div><div class="line">show variables like &apos;character%&apos;;                显示数据库字符编码</div><div class="line">修改密码:        setpasswordforroot@localhost = password(&apos;654321&apos;);</div><div class="line">net stop mysql   停止mysql的服务</div><div class="line">net start mysql 开启mysql的服务</div><div class="line">status:查看数据一系列的状态，包括字符编码等</div><div class="line">show  databases; 显示所有数据库</div><div class="line">use  database (mysql)  ;使用某个数据库</div><div class="line">show tables;显示某个数据中所有的表</div><div class="line">DROP DATABASE xxx;        删除数据库。</div><div class="line">drop table example;        删除表</div><div class="line">desc 表名称;                    查询表的字段信息</div></pre></td></tr></table></figure>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">create table  (创建表） student(表名)(</div><div class="line">    stuid (字段名）  int (类型） primary key(主键） auto_increment(主键自增长),</div><div class="line">    stuName  varchar(20) (可变的字符,随着字符数量改变而改变，是最长的长度空间20)，</div><div class="line">    gender  char(10)(不可变的字符，不随着字符数量改变而改变，最长的长度空间为10），</div><div class="line">    major varchar(20)  (最后一个不要写逗号)</div><div class="line">);</div><div class="line"></div><div class="line">create table 表名（</div><div class="line">    字段名  类型  主键  自增长</div><div class="line">）;</div><div class="line">CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci    创建数据库并用uft8</div></pre></td></tr></table></figure>
-<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into student(stuname,gender,major) values(&apos;java&apos;,&apos;m&apos;,&apos;computer&apos;);</div><div class="line">insert into student(stuname,gender,major) values(&apos;张三&apos;,&apos;男&apos;,&apos;旅游管理&apos;);</div></pre></td></tr></table></figure>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete from 表名 where 主键（id)=某个值</div><div class="line">delete from student where stuname=&apos;王磊&apos;;</div></pre></td></tr></table></figure>
-<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update 表名 set 字段名=希望修改的值，字段名=希望修改的值 where 主键=某个值</div><div class="line">update student set gender=&apos;男&apos; where stuid=8;</div></pre></td></tr></table></figure>
-<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from student;</div><div class="line">select   查询显示的记录的字段  from  表名  where   字段名=条件</div></pre></td></tr></table></figure>
-<h4 id="修改编码类型（插入中文）"><a href="#修改编码类型（插入中文）" class="headerlink" title="修改编码类型（插入中文）"></a>修改编码类型（插入中文）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">修改 MySQL---&gt;my.ini</div><div class="line">default-character-set=gbk</div><div class="line">character-set-server=gbk</div><div class="line">utf8</div></pre></td></tr></table></figure>
-<h4 id="limit使用"><a href="#limit使用" class="headerlink" title="limit使用"></a>limit使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from tablename limit 2,4</div><div class="line">			取出第3条至第6条，4条记录。</div></pre></td></tr></table></figure>
-<h4 id="like使用"><a href="#like使用" class="headerlink" title="like使用"></a>like使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;[abcde]cc&apos;</div><div class="line">查找 acc bcc ccc dcc ecc</div><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;%cc%&apos;</div><div class="line">查询带有 cc的数据</div></pre></td></tr></table></figure>
-<h4 id="查找某一时间段的数据"><a href="#查找某一时间段的数据" class="headerlink" title="查找某一时间段的数据"></a>查找某一时间段的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM lmapp.xxx where tx_time Between &apos;2015-12-20&apos; And &apos;2015-12-31&apos;;</div></pre></td></tr></table></figure>
+          123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &apos;character%&apos;;                显示数据库字符编码修改密码:  
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -524,32 +523,15 @@
       
         
           
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod.exe --logpath E:/data/db/dbConf/mongodb.log --logappend --dbpath E:/data --directoryperdb --serviceName MongoDB -install</div></pre></td></tr></table></figure>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">启动MongoDB：net start MongoDB</div><div class="line">停止MongoDB：net stop MongoDB</div><div class="line">删除MongoDB：sc delete MongoDB</div></pre></td></tr></table></figure>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">use 指向（创建）数据库 use test   如果不存在则创建</div><div class="line">db.dropDatabase()    删除数据库（需要进入数据库）</div><div class="line">db 查询现在数据库        db  </div><div class="line">show dbs  查询数据库大小；</div><div class="line">insert() 或 save() 方法向集合中插入文档；</div><div class="line">update() 方法用于更新已存在的文档。</div><div class="line">save() 方法通过传入的文档来替换已有文档</div><div class="line">remove()删除文档</div><div class="line">find()    查询文档       find().pretty()规则的显示</div><div class="line">ensureIndex()       索引</div><div class="line">aggregate() 方法 聚合方法，处理数据（统计）</div></pre></td></tr></table></figure>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-01.png?raw=true" alt="数据类型" title="数据类型"></p>
-<h3 id="插入事例"><a href="#插入事例" class="headerlink" title="插入事例"></a>插入事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;db.col.insert(&#123;title:&apos;MongoDB 教程&apos;,</div><div class="line">    description:&apos;MongoDB 是一个 Nosql 数据库&apos;,by:&apos;菜鸟教程&apos;,</div><div class="line">    url:&apos;http://www.runoob.com&apos;,</div><div class="line">    tags:[&apos;mongodb&apos;,&apos;database&apos;,&apos;NoSQL&apos;],</div><div class="line">    likes:100&#125;)</div></pre></td></tr></table></figure>
-<p>col 是集合名，如果该集合不在该数据库中， MongoDB 会自动创建集合插入文档。</p>
-<h4 id="分开执行-创建对象"><a href="#分开执行-创建对象" class="headerlink" title="分开执行 -创建对象"></a>分开执行 -创建对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; document=(&#123;title:&apos;MongoDB 教程&apos;, </div><div class="line">    description:&apos;MongoDB 是一个 Nosql 数据库&apos;,by:&apos;菜鸟教程&apos;,</div><div class="line">    url:&apos;http://www.runoob.com&apos;,</div><div class="line">    tags:[&apos;mongodb&apos;,&apos;database&apos;,&apos;NoSQL&apos;],</div><div class="line">    likes:100&#125;);</div></pre></td></tr></table></figure>
-<h4 id="执行插入："><a href="#执行插入：" class="headerlink" title="执行插入："></a>执行插入：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.insert(document)</div></pre></td></tr></table></figure>
-<h3 id="更新事例"><a href="#更新事例" class="headerlink" title="更新事例"></a>更新事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.collection.update(&lt;query&gt;,&lt;update&gt;,&#123;</div><div class="line">     upsert:&lt;boolean&gt;,</div><div class="line">     multi:&lt;boolean&gt;,</div><div class="line">     writeConcern:&lt;document&gt;&#125;)</div></pre></td></tr></table></figure>
-<h4 id="相关属性"><a href="#相关属性" class="headerlink" title="相关属性"></a>相关属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">query : update的查询条件，类似sql update查询内where后面的。</div><div class="line">update : update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</div><div class="line">upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</div><div class="line">multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</div><div class="line">writeConcern :可选，抛出异常的级别。</div></pre></td></tr></table></figure>
-<h4 id="事例"><a href="#事例" class="headerlink" title="事例"></a>事例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.update(&#123;&apos;title&apos;:&apos;MongoDB 教程&apos;&#125;,&#123;$set:&#123;&apos;title&apos;:&apos;MongoDB&apos;&#125;&#125;)</div></pre></td></tr></table></figure>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.col.find().pretty()</div><div class="line">&gt;db.col.save(&#123;&quot;_id&quot;:ObjectId(&quot;56064f89ade2f21f36b03136&quot;),（这里的ID是要替换的ID）&quot;title&quot;:&quot;MongoDB&quot;&#125;)</div></pre></td></tr></table></figure>
-<h3 id="删除事例"><a href="#删除事例" class="headerlink" title="删除事例"></a>删除事例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">db.collection.remove(&lt;query&gt;,&#123;</div><div class="line">     justOne:&lt;boolean&gt;,</div><div class="line">     writeConcern:&lt;document&gt;&#125;)</div></pre></td></tr></table></figure>
-<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">query :（可选）删除的文档的条件。</div><div class="line">justOne : （可选）如果设为 true 或 1，则只删除一个文档。</div><div class="line">writeConcern :（可选）抛出异常的级别。</div></pre></td></tr></table></figure>
-<h4 id="事例-1"><a href="#事例-1" class="headerlink" title="事例"></a>事例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.remove(&#123;&apos;title&apos;:&apos;MongoDB 教程&apos;&#125;)</div></pre></td></tr></table></figure>
-<h4 id="查询并删除"><a href="#查询并删除" class="headerlink" title="查询并删除"></a>查询并删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">and: db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()</div><div class="line">or:  db.col.find&#123;$or:[&#123;key1,value1&#125; , &#123;key2:value2&#125;]&#125;.pretty()</div><div class="line">&lt;：$lt    &lt;=:lte  &gt;:$gt    &gt;=:$gte    !=:%ne</div><div class="line">db.col.find(&#123;&quot;likes&quot;:&#123;$lt:50&#125;&#125;).pretty()</div></pre></td></tr></table></figure>
-<h3 id="类型编号"><a href="#类型编号" class="headerlink" title="类型编号"></a>类型编号</h3><h4 id="类型编号查询"><a href="#类型编号查询" class="headerlink" title="类型编号查询"></a>类型编号查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.col.find(&#123;&quot;title&quot;:&#123;$type :2&#125;&#125;)</div></pre></td></tr></table></figure>
-<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-02.png?raw=true" alt="类型编号表" title="类型编号表"></p>
-<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><h4 id="Limit与Skip方法："><a href="#Limit与Skip方法：" class="headerlink" title="Limit与Skip方法："></a>Limit与Skip方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.find().limit(NUMBER)    读取指定数量的数据记录</div><div class="line">&gt;db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)    skip()方法来跳过指定数量的数据</div><div class="line">&gt;db.col.find(&#123;&#125;,&#123;&quot;title&quot;:1,_id:0&#125;).limit(1).skip(1)</div></pre></td></tr></table></figure>
-<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.find().sort(&#123;KEY:1&#125;)    sort排序 1为升序，-1为降序</div></pre></td></tr></table></figure>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;db.COLLECTION_NAME.ensureIndex(&#123;KEY:1&#125;)    key 1为升序，-1为降序</div><div class="line">&gt;db.col.ensureIndex(&#123;&quot;title&quot;:1,&quot;description&quot;:-1&#125;)也可以设置多字段索引</div></pre></td></tr></table></figure>
-<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/MogoDBStudyNote-03.png?raw=true" alt="索引相关属性" title="索引相关属性"></p>
-<h3 id="管道概念"><a href="#管道概念" class="headerlink" title="管道概念"></a>管道概念</h3><p>当前命令的输出结果作为下一个命令的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</div><div class="line">$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</div><div class="line">$limit：用来限制MongoDB聚合管道返回的文档数。</div><div class="line">$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。</div><div class="line">$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。</div><div class="line">$group：将集合中的文档分组，可用于统计结果。</div><div class="line">$sort：将输入文档排序后输出。</div><div class="line">$geoNear：输出接近某一地理位置的有序文档。</div></pre></td></tr></table></figure></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.runoob.com/mongodb/mongodb-sharding.html" title="http://www.runoob.com/mongodb/mongodb-sharding.html" target="_blank" rel="external">http://www.runoob.com/mongodb/mongodb-sharding.html</a></p>
+          安装1mongod.exe --logpath E:/data/db/dbConf/mongodb.log --logappend --dbpath E:/data --directoryperdb --serviceName MongoDB -install
+运行123启动MongoDB：net 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -648,9 +630,15 @@
       
         
           
-            <p>进入解析设置。。<br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/DomainBinding-01.png?raw=true" alt="进入解析" title="进入解析"><br>增加解析<br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/DomainBinding-02.png?raw=true" alt="增加解析" title="增加解析"></p>
+          进入解析设置。。增加解析
 
           
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/2016-07-21-阿里云域名解析设置-DomainBinding/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -749,13 +737,14 @@
       
         
           
-            <h4 id="首先，直接运行xrandr查看下分辨率的情况："><a href="#首先，直接运行xrandr查看下分辨率的情况：" class="headerlink" title="首先，直接运行xrandr查看下分辨率的情况："></a>首先，直接运行xrandr查看下分辨率的情况：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ xrandr</div><div class="line">Screen 0: minimum 320 x 200, current 1280 x 1024, maximum 4096 x 4096</div><div class="line">LVDS1 connected (normal left inverted right x axis y axis)</div><div class="line">   1024x600       60.0 +</div><div class="line">   800x600        60.3     56.2</div><div class="line">   640x480        59.9</div><div class="line">VGA1 connected 1280x1024+0+0 (normal left inverted right x axis y axis) 0mm x 0mm</div><div class="line">   1024x768       60.0 *</div><div class="line">   800x600        60.3     56.2</div><div class="line">   848x480        60.0</div><div class="line">   640x480        59.9</div></pre></td></tr></table></figure>
-<h5 id="标星号的那行就是我正在使用的分辨率。"><a href="#标星号的那行就是我正在使用的分辨率。" class="headerlink" title="标星号的那行就是我正在使用的分辨率。"></a>标星号的那行就是我正在使用的分辨率。</h5><p>cvt命令生成一个modeline，为后续添加分辨率作准备：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cvt 1440 900</div><div class="line"> # 1440x900 59.89 Hz (CVT 1.30MA) hsync: 55.93 kHz; pclk: 106.50 MHz</div><div class="line"> Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync</div></pre></td></tr></table></figure></p>
-<h4 id="接着用xrandr-–addmode把这个模式添加到显示器"><a href="#接着用xrandr-–addmode把这个模式添加到显示器" class="headerlink" title="接着用xrandr –addmode把这个模式添加到显示器"></a>接着用xrandr –addmode把这个模式添加到显示器</h4><p>（–delmode把这个模式从该显示器上移除）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xrandr --addmode VGA1 &quot;1440x900_60.00&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="最后是应用这个模式"><a href="#最后是应用这个模式" class="headerlink" title="最后是应用这个模式"></a>最后是应用这个模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ xrandr --output VGA1 --mode &quot;1440x900_60.00&quot;</div></pre></td></tr></table></figure>
-<p>到这里就结束了。可以在使用xrandr查看下。</p>
+          首先，直接运行xrandr查看下分辨率的情况：1234567891011$ xrandrScreen 0: minimum 320 x 200, current 1280 x 1024, maximum 4096 x 4096LVDS1 connected (normal left inverted
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/2016-07-21-Linux双屏分辨率调整-LinuxResolutionRatioSet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -854,18 +843,18 @@
       
         
           
-            <blockquote>
-<p>之前Root的时候写的记录，也许有人需要</p>
-</blockquote>
-<h3 id="第一步，解锁（用工具箱解锁）"><a href="#第一步，解锁（用工具箱解锁）" class="headerlink" title="第一步，解锁（用工具箱解锁）"></a>第一步，解锁（用工具箱解锁）</h3><p>获取解锁码： <a href="https://www.emui.com/plugin.php?id=unlock&amp;mod=detail" title="https://www.emui.com/plugin.php?id=unlock&amp;mod=detail" target="_blank" rel="external">https://www.emui.com/plugin.php?id=unlock&amp;mod=detail</a><br><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-01.png?raw=true" alt="工具箱图片" title="工具箱图片"></p>
-<h3 id="解锁完成，刷入REC–huawei-x2-b009-recovery"><a href="#解锁完成，刷入REC–huawei-x2-b009-recovery" class="headerlink" title="解锁完成，刷入REC–huawei-x2-b009-recovery"></a>解锁完成，刷入REC–huawei-x2-b009-recovery</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-02.png?raw=true" alt="一键刷入" title="一键刷入"><br>手机点击  开机键 下键 两键，进入fashboot下。<br>直接使用一键刷入，文件在hw-m2教程.zip中，地址：<br><a href="http://pan.baidu.com/s/1nv1u0rR" title="http://pan.baidu.com/s/1nv1u0rR" target="_blank" rel="external">http://pan.baidu.com/s/1nv1u0rR</a></p>
-<h3 id="刷入后，拷贝supersu-pro-2-49-zip到手机磁盘，找得到的地方就好"><a href="#刷入后，拷贝supersu-pro-2-49-zip到手机磁盘，找得到的地方就好" class="headerlink" title="刷入后，拷贝supersu_pro_2.49.zip到手机磁盘，找得到的地方就好"></a>刷入后，拷贝supersu_pro_2.49.zip到手机磁盘，找得到的地方就好</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/BrushHuaWeiM2-03.png?raw=true" alt="刷机效果" title="刷机效果"><br>点击开机键 上下键  三键，进入REC，点击安装刷机包，选择supersu_pro_2.49.zip，安装<br>就完成了。</p>
-<p>我的百度云中也有。。</p>
-<p>然后点击重启到recovery或者手动按电源键加音量上下键键就可以进入recovery了，第三方recovery如下图</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root" title="http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root" target="_blank" rel="external">http://club.huawei.com/forum.php?mod=viewthread&amp;tid=8864653&amp;highlight=m2%20root</a></p>
-<p><a href="http://tieba.baidu.com/p/4327743658" title="http://tieba.baidu.com/p/4327743658" target="_blank" rel="external">http://tieba.baidu.com/p/4327743658</a></p>
-
           
+之前Root的时候写的记录，也许有人需要
+
+第一步，解锁（用工具箱解锁）获取解锁码： https://www.emui.com/plugin.php?id=unlock&amp;mod=detail
+解锁完成，刷入REC–huawei-x2-b009-recovery手机点击  开机键 下键 两键
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/20/2016-07-20-华为M2刷Root-BrushHuaWeiM2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -964,117 +953,17 @@
       
         
           
-            <h3 id="建立仓库："><a href="#建立仓库：" class="headerlink" title="建立仓库："></a>建立仓库：</h3><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/githubupload02.png?raw=true" alt="仓库地址" title="建立仓库"><br>先确认git公钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<h3 id="克隆产库"><a href="#克隆产库" class="headerlink" title="克隆产库"></a>克隆产库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Universesxing/MarkdownPhotos.git</div></pre></td></tr></table></figure>
-<h4 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h4><p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/githubupload01.png?raw=true" alt="仓库地址" title="仓库地址"></p>
-<h3 id="上传README-md"><a href="#上传README-md" class="headerlink" title="上传README.md"></a>上传README.md</h3><h4 id="注：如果创建时已经生成则不管此步"><a href="#注：如果创建时已经生成则不管此步" class="headerlink" title="注：如果创建时已经生成则不管此步"></a>注：如果创建时已经生成则不管此步</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">touch README.md</div><div class="line">git add README.md</div><div class="line">git commit -m <span class="string">'first_commit'</span></div><div class="line">git remote add origin https://github.com/Universesxing/MarkdownPhotos.git</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h3 id="push文件"><a href="#push文件" class="headerlink" title="push文件"></a>push文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">'first_commit'</span></div><div class="line">git remote add origin https://github.com/Universesxing/MarkdownPhotos.git</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+          建立仓库：先确认git公钥1　　ssh -T git@github.com
+克隆产库1git clone https://github.com/Universesxing/MarkdownPhotos.git
+仓库地址
+上传README.md注：如果创建时已经生成则不管此步123456git ini
+          ...
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="url">
-                  SVN的基础使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-06T10:08:16+08:00" content="2016-07-06">
-              2016-07-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>协同开发工具，配置管理工具，<br>主要作用：管理源代码，文档</p>
-<h3 id="分模块开发-："><a href="#分模块开发-：" class="headerlink" title="分模块开发 ："></a>分模块开发 ：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">用户管理---&gt;提交自己模块的功能代码</div><div class="line">配置管理---&gt;</div></pre></td></tr></table></figure>
-<h4 id="svn服务器安装，"><a href="#svn服务器安装，" class="headerlink" title="svn服务器安装，"></a>svn服务器安装，</h4><p> https:安全的<br> repositories: 数据仓库 专门用来存放数据，包括源代码、文档等存储到这里面<br> Server port  使用http    注意端口的冲突</p>
-<h4 id="配置svn服务"><a href="#配置svn服务" class="headerlink" title="配置svn服务"></a>配置svn服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">新建respostory</div><div class="line">新建项目文件夹</div><div class="line">创建一系列的文件夹，比如 文档，源代码，会议记录</div><div class="line">如果要访问 ，一定创建Users</div><div class="line">如果要对某一个文件夹 ，比如说移动办公文件夹权限管理，需要创建groups</div><div class="line">某个文件夹对组进行开放</div></pre></td></tr></table></figure>
-<h4 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端 :"></a>配置客户端 :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">url:http://ms-201407201443:81/svn/xmxx/moveoa/某个项目组</div><div class="line">non-versioned 没有在版本控制下</div><div class="line">modified 修改状态</div><div class="line">原则 ：先更新再提交</div></pre></td></tr></table></figure>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/20/2016-07-20-初学者上传文件到github-GitHubUpload/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1173,31 +1062,127 @@
       
         
           
-            <blockquote>
-<p>编写目的是为了整理之前搭建环境的步骤，便于下次使用，给需要的人一些帮助。</p>
-</blockquote>
-<hr>
-<h3 id="安装与配置hexo"><a href="#安装与配置hexo" class="headerlink" title="安装与配置hexo"></a>安装与配置hexo</h3><p>在linux下打开bash，win下面打开cmd，输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo -g</div></pre></td></tr></table></figure></p>
-<h4 id="npm换源：淘宝源"><a href="#npm换源：淘宝源" class="headerlink" title="npm换源：淘宝源"></a>npm换源：淘宝源</h4><p>如果出现无法下载可以换源后重新下载<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</div></pre></td></tr></table></figure></p>
-<p>配置后可通过下面方式来验证是否成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config get registry</div></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm info express</div></pre></td></tr></table></figure></p>
-<h3 id="配置本地ssh"><a href="#配置本地ssh" class="headerlink" title="配置本地ssh"></a>配置本地ssh</h3><h4 id="生成key"><a href="#生成key" class="headerlink" title="生成key"></a>生成key</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ssh-keygen -t rsa -C <span class="string">"universexin@163.com"</span></div></pre></td></tr></table></figure>
-<p>加3个回车   之后在各种用户下找到.ssh 详细导入github可以百度教程</p>
-<h3 id="设置git-config"><a href="#设置git-config" class="headerlink" title="设置git config"></a>设置git config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"universexin"</span></div><div class="line">$ git config --global user.email  <span class="string">"universexin@163.com"</span></div></pre></td></tr></table></figure>
-<h3 id="生成blog"><a href="#生成blog" class="headerlink" title="生成blog"></a>生成blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
-<h3 id="启动本地blog"><a href="#启动本地blog" class="headerlink" title="启动本地blog"></a>启动本地blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<h3 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line">hexo help  # 查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div><div class="line"></div><div class="line">hexo deploy -g  #生成加部署</div><div class="line">hexo server -g  #生成加预览</div><div class="line"></div><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
-<h5 id="注意：-config-yml配置文件是一个空行，所以必须有个空格。冒号-后面没留空格导致错误。"><a href="#注意：-config-yml配置文件是一个空行，所以必须有个空格。冒号-后面没留空格导致错误。" class="headerlink" title="注意：_config.yml配置文件是一个空行，所以必须有个空格。冒号:后面没留空格导致错误。"></a>注意：_config.yml配置文件是一个空行，所以必须有个空格。冒号:后面没留空格导致错误。</h5><p>错误设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">author:Zhchnchn</div><div class="line">email:XXX@qq.com</div><div class="line">language:zh-CN</div></pre></td></tr></table></figure></p>
-<p>正确设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">author: Zhchnchn</div><div class="line">email: XXX@qq.com</div><div class="line">language: zh-CN</div></pre></td></tr></table></figure></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装 npm install hexo-deployer-git --save</div><div class="line">在github上建立项目，项目名为 : Universesxing/Universesxing.github.io #用户名/用户名</div><div class="line">将deploy 的 type由github改为git</div></pre></td></tr></table></figure>
-<h3 id="配置域名："><a href="#配置域名：" class="headerlink" title="配置域名："></a>配置域名：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在github项目中，新建一个文件CNAME，文件中写出你要绑定的域名blog.universexin.com。</div><div class="line">通过浏览器，访问blog.universexin.com，就打开了我们建好的博客站点。</div><div class="line">加入CNAME blog  到相应地址。</div><div class="line">在blog的source目录下新建CNAME,在文件中写入你的域名。</div></pre></td></tr></table></figure>
-<p><img src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/cnameblogconfig01.png?raw=true" alt="配置域名" title="配置域名"></p>
-<h3 id="安装feed插件"><a href="#安装feed插件" class="headerlink" title="安装feed插件"></a>安装feed插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-feed</div><div class="line">$ npm install hexo-generator-sitemap</div></pre></td></tr></table></figure>
-<h4 id="feed设置"><a href="#feed设置" class="headerlink" title="feed设置"></a>feed设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">Plugins:</div><div class="line">- hexo-generator-feed</div><div class="line">- hexo-generator-sitemap</div><div class="line"></div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 20</div></pre></td></tr></table></figure>
-<h4 id="关于Next主题设置可以查看："><a href="#关于Next主题设置可以查看：" class="headerlink" title="关于Next主题设置可以查看："></a>关于Next主题设置可以查看：</h4><p><a href="http://theme-next.iissnan.com/theme-settings.html" title="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">http://theme-next.iissnan.com/theme-settings.html</a></p>
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a href="http://http://www.cnblogs.com/zhcncn/p/4097881.html" title="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a><br><a href="http://blog.fens.me/hexo-blog-github/" title="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">http://blog.fens.me/hexo-blog-github/</a></p>
+          
+编写目的是为了整理之前搭建环境的步骤，便于下次使用，给需要的人一些帮助。
+
+
+安装与配置hexo在linux下打开bash，win下面打开cmd，输入：1$ npm install hexo -g
+npm换源：淘宝源如果出现无法下载可以换源后重新下载1npm config set registry
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/06/2016-07-20-Hexo搭建GitHub个人博客-HexoGitHubNewBlog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="url">
+                  SVN的基础使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-06T10:08:16+08:00" content="2016-07-06">
+              2016-07-06
+            </time>
+          </span>
 
           
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-16-SVN的基础使用-SVNBase/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          协同开发工具，配置管理工具，主要作用：管理源代码，文档
+分模块开发 ：12用户管理---&gt;提交自己模块的功能代码配置管理---&gt;
+svn服务器安装， https:安全的 repositories: 数据仓库 专门用来存放数据，包括源代码、文档等存储到这里面 Server port  使用
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/06/2016-07-16-SVN的基础使用-SVNBase/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1296,68 +1281,34 @@
       
         
           
-            <p>单个回车<br>视为空格。</p>
-<p>连续回车</p>
-<p>才能分段。</p>
-<p>行尾加两个空格，这里-&gt;<br>即可段内换行。</p>
-<p><em>这些文字显示为斜体</em></p>
-<p><strong>这些文字显示为粗体</strong></p>
-<p>标题标签</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h6 id="最低是六级标题哦"><a href="#最低是六级标题哦" class="headerlink" title="最低是六级标题哦"></a>最低是六级标题哦</h6><p>有序列表：</p>
-<ol>
-<li>测试1</li>
-<li>测试2</li>
-<li>测试3</li>
-</ol>
-<p>无序列表：</p>
-<ul>
-<li>测试无序1</li>
-<li>测试无序2</li>
-</ul>
-<ul>
-<li>测试星号无序1</li>
-<li>原来星号和减号是一个效果呀。。</li>
-</ul>
-<blockquote>
-<p>引用 引用了别人的语句用他，（尖括号） 不过记得，用完后好换行呢。</p>
-</blockquote>
-<p>插入图片和链接</p>
-<h4 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h4><p><a href="http://baidu.com" target="_blank" rel="external">Baidu</a></p>
-<h4 id="插入图片-可以先在CloadApp上生成URL-然后，没有然后啦"><a href="#插入图片-可以先在CloadApp上生成URL-然后，没有然后啦" class="headerlink" title="插入图片 可以先在CloadApp上生成URL 然后，没有然后啦"></a>插入图片 可以先在CloadApp上生成URL 然后，没有然后啦</h4><p><img src="http://mouapp.com/Mou_128.png" alt="Mou icon"></p>
-<p>表格：（感觉略麻烦）</p>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<p>代码框：这个很常用的：只要单引号框起来就好。（这家伙的兼容性不行呀。云协作不支持）<br>@Configuration<br>@EnableJpaRepositories<br>@Import(InfrastructureConfig.class)<br>public class ApplicationConfig {<br>}</p>
-<p>分割线<br>分割线的语法只需要另起一行，连续输入三个星号 <em>*</em> 即可。</p>
-<p>就像这样， 我是分割线</p>
-<hr>
-<p>头部属性：<br>Layout    post或page<br>title：文章标题<br>date：创建时间<br>updated：修改时间<br>comments：是否开启评论<br>tags:标签<br>categories：分类</p>
+          单个回车视为空格。
+连续回车
+才能分段。
+行尾加两个空格，这里-&gt;即可段内换行。
+这些文字显示为斜体
+这些文字显示为粗体
+标题标签
+一级标题二级标题三级标题最低是六级标题哦有序列表：
 
-          
+测试1
+测试2
+测试3
+
+无序列表：
+
+测试无序1
+测试无序2
+
+
+测试星号无序1
+原来星号和减号是一个效果
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/20/2016-03-20-认识MarkDown-KnowMarkdown/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
