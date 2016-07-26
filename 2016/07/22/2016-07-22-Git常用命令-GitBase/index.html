@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MySQL," />
+  <meta name="keywords" content="Git,常用," />
 
 
 
@@ -86,16 +86,19 @@
 
 
 
-<meta name="description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
+<meta name="description" content="常用命令设置123$ git config --global user.name &amp;quot;defnngj&amp;quot;//给自己起个用户名$ git config --global user.email  &amp;quot;defnngj@gmail.com&amp;quot;//填写自己的邮箱$ git init 初始化仓库
+提交12345$ git add .   //（.）点表示当前目录下的所有内容，交">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建GitHub个人博客">
-<meta property="og:url" content="http://blog.universexin.com/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/index.html">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="http://blog.universexin.com/2016/07/22/2016-07-22-Git常用命令-GitBase/index.html">
 <meta property="og:site_name" content="UiverseXin Blog">
-<meta property="og:description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
-<meta property="og:updated_time" content="2016-07-21T04:54:27.435Z">
+<meta property="og:description" content="常用命令设置123$ git config --global user.name &amp;quot;defnngj&amp;quot;//给自己起个用户名$ git config --global user.email  &amp;quot;defnngj@gmail.com&amp;quot;//填写自己的邮箱$ git init 初始化仓库
+提交12345$ git add .   //（.）点表示当前目录下的所有内容，交">
+<meta property="og:updated_time" content="2016-07-22T06:30:07.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建GitHub个人博客">
-<meta name="twitter:description" content="123456789101112mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )show variables like &amp;apos;character%&amp;apos;;                显示数据库字符编码修改密码:        setpasswordforroot@localhost = password(&amp;apo">
+<meta name="twitter:title" content="Git常用命令">
+<meta name="twitter:description" content="常用命令设置123$ git config --global user.name &amp;quot;defnngj&amp;quot;//给自己起个用户名$ git config --global user.email  &amp;quot;defnngj@gmail.com&amp;quot;//填写自己的邮箱$ git init 初始化仓库
+提交12345$ git add .   //（.）点表示当前目录下的所有内容，交">
 
 
 
@@ -116,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://blog.universexin.com/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/"/>
+  <link rel="canonical" href="http://blog.universexin.com/2016/07/22/2016-07-22-Git常用命令-GitBase/"/>
 
-  <title> Hexo搭建GitHub个人博客 | UiverseXin Blog </title>
+  <title> Git常用命令 | UiverseXin Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +261,7 @@
             
             
               
-                Hexo搭建GitHub个人博客
+                Git常用命令
               
             
           </h1>
@@ -270,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T12:41:55+08:00" content="2016-07-21">
-              2016-07-21
+            <time itemprop="dateCreated" datetime="2016-07-22T14:30:07+08:00" content="2016-07-22">
+              2016-07-22
             </time>
           </span>
 
@@ -281,8 +284,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/" itemprop="commentsCount"></span>
+                <a href="/2016/07/22/2016-07-22-Git常用命令-GitBase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/2016-07-22-Git常用命令-GitBase/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,16 +308,14 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p 数据库名称         （   登录数据库    root权限进入mysql  )</div><div class="line">show variables like &apos;character%&apos;;                显示数据库字符编码</div><div class="line">修改密码:        setpasswordforroot@localhost = password(&apos;654321&apos;);</div><div class="line">net stop mysql   停止mysql的服务</div><div class="line">net start mysql 开启mysql的服务</div><div class="line">status:查看数据一系列的状态，包括字符编码等</div><div class="line">show  databases; 显示所有数据库</div><div class="line">use  database (mysql)  ;使用某个数据库</div><div class="line">show tables;显示某个数据中所有的表</div><div class="line">DROP DATABASE xxx;        删除数据库。</div><div class="line">drop table example;        删除表</div><div class="line">desc 表名称;                    查询表的字段信息</div></pre></td></tr></table></figure>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">create table  (创建表） student(表名)(</div><div class="line">    stuid (字段名）  int (类型） primary key(主键） auto_increment(主键自增长),</div><div class="line">    stuName  varchar(20) (可变的字符,随着字符数量改变而改变，是最长的长度空间20)，</div><div class="line">    gender  char(10)(不可变的字符，不随着字符数量改变而改变，最长的长度空间为10），</div><div class="line">    major varchar(20)  (最后一个不要写逗号)</div><div class="line">);</div><div class="line"></div><div class="line">create table 表名（</div><div class="line">    字段名  类型  主键  自增长</div><div class="line">）;</div><div class="line">CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci    创建数据库并用uft8</div></pre></td></tr></table></figure>
-<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into student(stuname,gender,major) values(&apos;java&apos;,&apos;m&apos;,&apos;computer&apos;);</div><div class="line">insert into student(stuname,gender,major) values(&apos;张三&apos;,&apos;男&apos;,&apos;旅游管理&apos;);</div></pre></td></tr></table></figure>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete from 表名 where 主键（id)=某个值</div><div class="line">delete from student where stuname=&apos;王磊&apos;;</div></pre></td></tr></table></figure>
-<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update 表名 set 字段名=希望修改的值，字段名=希望修改的值 where 主键=某个值</div><div class="line">update student set gender=&apos;男&apos; where stuid=8;</div></pre></td></tr></table></figure>
-<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from student;</div><div class="line">select   查询显示的记录的字段  from  表名  where   字段名=条件</div></pre></td></tr></table></figure>
-<h4 id="修改编码类型（插入中文）"><a href="#修改编码类型（插入中文）" class="headerlink" title="修改编码类型（插入中文）"></a>修改编码类型（插入中文）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">修改 MySQL---&gt;my.ini</div><div class="line">default-character-set=gbk</div><div class="line">character-set-server=gbk</div><div class="line">utf8</div></pre></td></tr></table></figure>
-<h4 id="limit使用"><a href="#limit使用" class="headerlink" title="limit使用"></a>limit使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from tablename limit 2,4</div><div class="line">			取出第3条至第6条，4条记录。</div></pre></td></tr></table></figure>
-<h4 id="like使用"><a href="#like使用" class="headerlink" title="like使用"></a>like使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;[abcde]cc&apos;</div><div class="line">查找 acc bcc ccc dcc ecc</div><div class="line">SELECT * FROM [user] WHERE u_name LIKE &apos;%cc%&apos;</div><div class="line">查询带有 cc的数据</div></pre></td></tr></table></figure>
-<h4 id="查找某一时间段的数据"><a href="#查找某一时间段的数据" class="headerlink" title="查找某一时间段的数据"></a>查找某一时间段的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM lmapp.xxx where tx_time Between &apos;2015-12-20&apos; And &apos;2015-12-31&apos;;</div></pre></td></tr></table></figure>
+        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;defnngj&quot;//给自己起个用户名</div><div class="line">$ git config --global user.email  &quot;defnngj@gmail.com&quot;//填写自己的邮箱</div><div class="line">$ git init 初始化仓库</div></pre></td></tr></table></figure>
+<h4 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add .   //（.）点表示当前目录下的所有内容，交给git管理，也就是提交到了git的本地仓库。</div><div class="line">$ git commit –m”更新描述 ”  //对你更新或修改了哪些内容做一个描述。</div><div class="line">$ git remote add origin git@github.com:defnngj/hibernate-demo.git 选择提交地址（第一次提交使用）</div><div class="line">$ git remote -v  //查看你当前项目远程连接的是哪个仓库地址。</div><div class="line">$ git push -u origin master  //将本地的项目提交到远程仓库中。</div></pre></td></tr></table></figure>
+<h4 id="克隆-下载"><a href="#克隆-下载" class="headerlink" title="克隆(下载)"></a>克隆(下载)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:defnngj/hibernate-demo.git 到想要保存的目录，下使用，将项目克隆岛本地</div></pre></td></tr></table></figure>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin    //取得远程更新</div><div class="line">$ git merge origin/master  //把更新的内容合并到本地分支/master</div></pre></td></tr></table></figure>
+<h4 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git status 查看是否有人更新</div><div class="line">git log     # 显示提交日志</div><div class="line">git branch  # 显示本地分支</div></pre></td></tr></table></figure>
+<h3 id="GitHub秘钥设置"><a href="#GitHub秘钥设置" class="headerlink" title="GitHub秘钥设置"></a>GitHub秘钥设置</h3><h4 id="获得密钥："><a href="#获得密钥：" class="headerlink" title="获得密钥："></a>获得密钥：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Ssh-keygen -t rsa -C &quot;email地址&quot;//填写email地址，然后三个“回车”</div><div class="line">打开本地..\.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。</div></pre></td></tr></table></figure>
+<h4 id="填写秘钥："><a href="#填写秘钥：" class="headerlink" title="填写秘钥："></a>填写秘钥：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">登陆github系统，点击右上角的</div><div class="line">Settings---&gt;</div><div class="line">SSH and GPG keys---&gt;</div><div class="line">new SSH keys</div><div class="line">title随便写</div><div class="line">把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就可以了。</div></pre></td></tr></table></figure>
+<h4 id="测试连接："><a href="#测试连接：" class="headerlink" title="测试连接："></a>测试连接：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -337,7 +338,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+            <a href="/tags/常用/" rel="tag">#常用</a>
           
         </div>
       
@@ -346,17 +349,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/21/2016-07-21-MongoDB学习笔记-MogoDBStudyNote/" rel="next" title="MongoDB学习笔记">
-                <i class="fa fa-chevron-left"></i> MongoDB学习笔记
+              <a href="/2016/07/21/2016-07-21-开启数据库远程连接-OpenMysqlConn/" rel="next" title="开启数据库远程连接">
+                <i class="fa fa-chevron-left"></i> 开启数据库远程连接
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/21/2016-07-21-开启数据库远程连接-OpenMysqlConn/" rel="prev" title="开启数据库远程连接">
-                开启数据库远程连接 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -371,10 +370,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/"
-     data-title="Hexo搭建GitHub个人博客"
+        <div class="ds-share flat" data-thread-key="2016/07/22/2016-07-22-Git常用命令-GitBase/"
+     data-title="Git常用命令"
      data-content=""
-     data-url="http://blog.universexin.com/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/">
+     data-url="http://blog.universexin.com/2016/07/22/2016-07-22-Git常用命令-GitBase/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -401,8 +400,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/"
-           data-title="Hexo搭建GitHub个人博客" data-url="http://blog.universexin.com/2016/07/21/2016-07-21-MySQLc常用操作-MysqlBaseOne/">
+      <div class="ds-thread" data-thread-key="2016/07/22/2016-07-22-Git常用命令-GitBase/"
+           data-title="Git常用命令" data-url="http://blog.universexin.com/2016/07/22/2016-07-22-Git常用命令-GitBase/">
       </div>
     
   </div>
@@ -513,7 +512,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表"><span class="nav-number">1.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入数据"><span class="nav-number">1.2.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">1.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改"><span class="nav-number">1.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">1.5.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改编码类型（插入中文）"><span class="nav-number">1.6.</span> <span class="nav-text">修改编码类型（插入中文）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#limit使用"><span class="nav-number">1.7.</span> <span class="nav-text">limit使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#like使用"><span class="nav-number">1.8.</span> <span class="nav-text">like使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找某一时间段的数据"><span class="nav-number">1.9.</span> <span class="nav-text">查找某一时间段的数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">1.1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交"><span class="nav-number">1.2.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆-下载"><span class="nav-number">1.3.</span> <span class="nav-text">克隆(下载)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">1.4.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看"><span class="nav-number">1.5.</span> <span class="nav-text">查看</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub秘钥设置"><span class="nav-number">2.</span> <span class="nav-text">GitHub秘钥设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获得密钥："><span class="nav-number">2.1.</span> <span class="nav-text">获得密钥：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#填写秘钥："><span class="nav-number">2.2.</span> <span class="nav-text">填写秘钥：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试连接："><span class="nav-number">2.3.</span> <span class="nav-text">测试连接：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
