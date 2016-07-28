@@ -1,0 +1,676 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="UiverseXin Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="之前学习的时候写的笔记。
+
+数组1234567891011121314可以进行分片操作（在这里应该称为序列）numbers = [1,2,3,4,5,6,7,8,9,10]list方法：	例：list[&amp;apos;hello&amp;apos;]--&amp;gt;[&amp;apos;h&amp;apos;,&amp;apos;e&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;o&amp;apos;]app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础">
+<meta property="og:url" content="http://blog.universexin.com/2016/07/28/2016-07-28-Python基础-PythonBase/index.html">
+<meta property="og:site_name" content="UiverseXin Blog">
+<meta property="og:description" content="之前学习的时候写的笔记。
+
+数组1234567891011121314可以进行分片操作（在这里应该称为序列）numbers = [1,2,3,4,5,6,7,8,9,10]list方法：	例：list[&amp;apos;hello&amp;apos;]--&amp;gt;[&amp;apos;h&amp;apos;,&amp;apos;e&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;o&amp;apos;]app">
+<meta property="og:updated_time" content="2016-07-28T06:50:22.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础">
+<meta name="twitter:description" content="之前学习的时候写的笔记。
+
+数组1234567891011121314可以进行分片操作（在这里应该称为序列）numbers = [1,2,3,4,5,6,7,8,9,10]list方法：	例：list[&amp;apos;hello&amp;apos;]--&amp;gt;[&amp;apos;h&amp;apos;,&amp;apos;e&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;l&amp;apos;,&amp;apos;o&amp;apos;]app">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6309328054581741000,
+      author: 'UniverseXin'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://blog.universexin.com/2016/07/28/2016-07-28-Python基础-PythonBase/"/>
+
+  <title> Python基础 | UiverseXin Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?fcbbd12f15ae040903c344f6dd685f91";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">UiverseXin Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">星云</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-28T14:50:22+08:00" content="2016-07-28">
+              2016-07-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/28/2016-07-28-Python基础-PythonBase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/2016-07-28-Python基础-PythonBase/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>之前学习的时候写的笔记。</p>
+</blockquote>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">可以进行分片操作（在这里应该称为序列）</div><div class="line">numbers = [1,2,3,4,5,6,7,8,9,10]</div><div class="line">list方法：</div><div class="line">	例：list[&apos;hello&apos;]--&gt;[&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]</div><div class="line">append：末尾添加</div><div class="line">	例：lst=[1,2,3]  lst.append(4)  lst [1,2,3,4]</div><div class="line">count：统计        .count(&apos;to&apos;)  统计to的个数。</div><div class="line">extend：追加数组  a b都是数组  a.extend(b)    这a后面会加入b数组的数据。如同a = a + b</div><div class="line">index：字符匹配 在数组中匹配who</div><div class="line">insert插入： numbers.insert(3,&apos;aa&apos;)在3的位置插入aa。（这里的3指的是第4位。。数组哦）</div><div class="line">pop：移除 x.pop();移除一个， x.pop(0)移除第0位的数据。</div><div class="line">remove：移除某个值 x.remove(&apos;a&apos;)移除a.</div><div class="line">reverse：方向存放。 x.reverse() 0遍最后一个。同理往下。。</div><div class="line">sort：排序。。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">元组：不可变序列。</div><div class="line">	例：1,2,3     结果为  （1,2,3）</div><div class="line">tuple：</div><div class="line">	例：将序列转为元组   tuple（）；</div></pre></td></tr></table></figure>
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">%s和C很类似的操作。例如：</div><div class="line">format = &quot;Hello , %s. %s enough for ya ?&quot;</div><div class="line">values = (&apos;world&apos; ,&apos;Hot&apos;)</div><div class="line">print format %values</div><div class="line"> 结果： Hello，world . Hot enough for ya ?</div><div class="line">如果要使用百分号 % ，则，写%%。</div></pre></td></tr></table></figure>
+<h4 id="find查找方法"><a href="#find查找方法" class="headerlink" title="find查找方法"></a>find查找方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title= “abcde”</div><div class="line">titile.find(&apos;a&apos;) 结果为0</div><div class="line">title.find(&apos;c&apos;)  结果为2</div></pre></td></tr></table></figure>
+<h4 id="join-连接字符串"><a href="#join-连接字符串" class="headerlink" title="join 连接字符串"></a>join 连接字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">seq = [&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;]</div><div class="line">sep = &apos; + &apos;</div><div class="line">sep.join(seq)</div><div class="line">结果： &apos;1 + 2 + 3 + 4 + 5&apos;</div><div class="line">或</div><div class="line">dirs =&apos;&apos; , &apos;usr&apos; , &apos;bin &apos; , &apos;env&apos;</div><div class="line">&apos;/&apos;.join(dirs)</div><div class="line">结果：        usr\bin\env</div></pre></td></tr></table></figure>
+<h4 id="split方法："><a href="#split方法：" class="headerlink" title="split方法："></a>split方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&apos;1+2+3+4+5 &apos;.split(&apos;+&apos;)</div><div class="line">结果： [&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4,&apos;5&apos;]</div></pre></td></tr></table></figure>
+<h4 id="lower-方法：-返回小写字母"><a href="#lower-方法：-返回小写字母" class="headerlink" title="lower 方法： 返回小写字母"></a>lower 方法： 返回小写字母</h4><h4 id="replace-方法：-替换"><a href="#replace-方法：-替换" class="headerlink" title="replace 方法： 替换"></a>replace 方法： 替换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&apos;This is a aaaa &apos;.replace(&apos;is&apos; , &apos;admin&apos;)</div><div class="line">结果：Thadmin admin a aaaa</div></pre></td></tr></table></figure>
+<h3 id="字典（key-value）"><a href="#字典（key-value）" class="headerlink" title="字典（key value）"></a>字典（key value）</h3><h4 id="创建字典方式："><a href="#创建字典方式：" class="headerlink" title="创建字典方式："></a>创建字典方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phonebook =&#123;&apos;AKAO&apos; : &apos;13260220&apos; ,&apos;xy&apos; :&apos;1801563&apos; , &apos;tt&apos; : &apos;1111111&apos;&#125;</div></pre></td></tr></table></figure>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dict     方法：相当于映射字典到另一个对象上吧。。</div><div class="line">a  = [(&apos;name&apos; ,&apos;blog.universexin.com&apos;) ,(&apos;age&apos; , 1) ]</div><div class="line">d = dict(a) d则变得和 a 一样。</div><div class="line">d.[&apos;name&apos;]           --&gt; &apos;blog.universexin.com&apos;</div><div class="line">len(d)        返回d中键值对数量。</div><div class="line">d[k]           返回关联到k键上的值。</div><div class="line">d[k] = v     将v关联到k键上。</div><div class="line">del  d[k]    删除键为k的项。</div><div class="line">k in d         检测  d中是否有含有键为k的项。</div></pre></td></tr></table></figure>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">words  = [&apos;1&apos;.&apos;2&apos;.&apos;3&apos;.&apos;4&apos;]</div><div class="line">for  word in words :                这个 才是特别的，，普通的for不见了。。</div><div class="line">    print word</div></pre></td></tr></table></figure>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def admin(a) :</div><div class="line">     return  &apos;Hello , &apos;  + name  + &apos;1&apos;</div></pre></td></tr></table></figure>
+<h3 id="局部变量与全局变量"><a href="#局部变量与全局变量" class="headerlink" title="局部变量与全局变量"></a>局部变量与全局变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">globals()[&apos;parameter&apos;]        里面写的就是全局（局部）变量名了。</div><div class="line">遇到冲突了怎么办：</div><div class="line">def combine(parameter):</div><div class="line">    print parameter + globals()[&apos;parameter&apos;]</div></pre></td></tr></table></figure>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">创建类：</div><div class="line">class   Filter:</div><div class="line">    def a():</div><div class="line">        return</div><div class="line"></div><div class="line">class AdFilter(Filter) ：类的继承：继承了Filter类。</div><div class="line">    def a():</div><div class="line">        return &apos;aa&apos;            方法重写</div><div class="line"></div><div class="line">class CdFilter (AdFilter,Filter): 多继承吗。</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/28/2016-07-28-Python抓取网页数据-PythonReadHtml/" rel="next" title="Python抓取网页数据">
+                <i class="fa fa-chevron-left"></i> Python抓取网页数据
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/28/2016-07-28-Python基础-PythonBase/"
+     data-title="Python基础"
+     data-content=""
+     data-url="http://blog.universexin.com/2016/07/28/2016-07-28-Python基础-PythonBase/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/28/2016-07-28-Python基础-PythonBase/"
+           data-title="Python基础" data-url="http://blog.universexin.com/2016/07/28/2016-07-28-Python基础-PythonBase/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/Universesxing/MarkdownPhotos/blob/master/Res/mylogo.png?raw=true"
+               alt="UniverseXin" />
+          <p class="site-author-name" itemprop="name">UniverseXin</p>
+          <p class="site-description motion-element" itemprop="description">便于翻阅，利己利人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/universesxing" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/universexin" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串操作"><span class="nav-number"></span> <span class="nav-text">字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find查找方法"><span class="nav-number">1.</span> <span class="nav-text">find查找方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join-连接字符串"><span class="nav-number">2.</span> <span class="nav-text">join 连接字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split方法："><span class="nav-number">3.</span> <span class="nav-text">split方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lower-方法：-返回小写字母"><span class="nav-number">4.</span> <span class="nav-text">lower 方法： 返回小写字母</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#replace-方法：-替换"><span class="nav-number">5.</span> <span class="nav-text">replace 方法： 替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典（key-value）"><span class="nav-number"></span> <span class="nav-text">字典（key value）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建字典方式："><span class="nav-number">1.</span> <span class="nav-text">创建字典方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">2.</span> <span class="nav-text">常用方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number"></span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number"></span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量与全局变量"><span class="nav-number"></span> <span class="nav-text">局部变量与全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number"></span> <span class="nav-text">类</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UniverseXin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"universexin"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
